@@ -14,8 +14,7 @@ const KeystrokeSchema = new Schema({
                 {
                     keyCode: Number,
                     timestamp: Date,
-                    eventType: String,
-                    order: Number
+                    eventType: String
                 }
             ]
         }

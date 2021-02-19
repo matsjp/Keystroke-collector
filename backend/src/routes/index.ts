@@ -6,20 +6,22 @@ import {KeystrokeModel} from '../database/keystroke/keystroke.model';
 const router = Router();
 
 // Keystroke route
-router.post('/keystroke', (req: Request, res: Response) => {
+router.post('/keystroke', async (req: Request, res: Response) => {
     const val = validator.validate(req.body);
+    console.log(req.body);
     if (val.error != null){
-        res.status(400).json(val.error)
+         return res.status(400).json(val.error)
     }
 
     const keystroke = new KeystrokeModel(req.body);
-    keystroke.save(function (err, keystroke) {
-        if (err){
-            res.status(500).json({
-                status: 'error',
-                message: 'Failed to save data to database'})
-        }
-      });
+    try {
+        await keystroke.save();
+    }
+    catch(err){
+        return res.status(500).json({
+            status: 'error',
+            message: 'Failed to save data to database'})
+    }
 
     return res.status(200).json({
         status: 'success',
