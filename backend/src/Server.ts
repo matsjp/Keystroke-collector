@@ -9,7 +9,6 @@ import 'express-async-errors';
 import BaseRouter from './routes';
 import logger from '@shared/Logger';
 
-import bodyParser from 'body-parser';
 var cors = require('cors');
 const app = express();
 const { BAD_REQUEST } = StatusCodes;

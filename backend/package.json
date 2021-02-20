@@ -6,7 +6,8 @@
     "lint": "eslint . --ext .ts",
     "start": "node -r module-alias/register ./dist --env=production",
     "start:dev": "nodemon",
-    "test": "nodemon --config ./spec/nodemon.json"
+    "test": "nodemon --config ./spec/nodemon.json",
+    "postinstall": 
   },
   "nodemonConfig": {
     "watch": [
@@ -100,5 +101,6 @@
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.1.3"
-  }
+  },
+  "engines": {"node": "v10.16.2"}
 }
