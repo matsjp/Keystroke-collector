@@ -2,7 +2,7 @@ import { Router, Request, Response } from 'express';
 import validator from '../validator/Validator';
 import {KeystrokeModel} from '../database/keystroke/keystroke.model';
 import db from '../Firebase';
-import { randomString } from 'src/utils';
+import { randomString } from '../utils';
 
 // Init router and path
 const router = Router();
