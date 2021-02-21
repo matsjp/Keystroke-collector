@@ -2,7 +2,9 @@ import app from './Server';
 import logger from './shared/Logger';
 import {connect} from './database';
 
-connect();
+
+
+//connect();
 
 
 

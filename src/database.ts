@@ -6,7 +6,6 @@ let database: mongoose.Connection;
 export const connect = () => {  // add your own uri below
     // eslint-disable-next-line max-len
     if (process.env.DB_USERNAME === undefined){
-        console.log(process.env.DB_USERNAME);
         throw Error("DB_USERNAME does not exist in .env");
     }
     if (process.env.DB_CLUSTER_URL === undefined){
