@@ -3,6 +3,8 @@ import validator from '../validator/Validator';
 import {KeystrokeModel} from '../database/keystroke/keystroke.model';
 import db from '../Firebase';
 import { randomString } from '../utils';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Init router and path
 const router = Router();
@@ -17,10 +19,12 @@ router.post('/keystroke', async (req: Request, res: Response) => {
     }
 
     try {
-        const docRef = db.collection('keystrokes').doc(randomString());
+        if (process.env.keystrokesCollection != null){
+            const docRef = db.collection(process.env.keystrokesCollection).doc(randomString());
 
 
-        await docRef.set(req.body);   
+            await docRef.set(req.body);   
+        }
     }
     catch(err){
         console.log(err);
